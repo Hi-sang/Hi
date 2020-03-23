@@ -1,3 +1,3 @@
 # Hi
 a beginner
-제발 돼라
+print("제발 돼라")
