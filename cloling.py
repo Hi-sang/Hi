@@ -1,13 +1,17 @@
 import requests
 from bs4 import BeautifulSoup
 
-response = requests.get('https://askdjango.github.io/lv1/')
 
-html = response.text
 
-soup = BeautifulSoup(html, 'html.parser')
+for i in range(1,20):
+    site = "https://finance.naver.com/sise/entryJongmok.nhn?&page=" + str(i)
 
-for tag in soup.select('li[class=course]'):
-    print(tag.text)
+    response = requests.get(site)
 
+    html = response.text
+
+    soup = BeautifulSoup(html,'html.parser')
+
+    for tag in soup.select('td[class]'):
+        print(tag.text)
 
